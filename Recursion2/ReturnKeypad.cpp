@@ -42,8 +42,8 @@ int helper(int num, string output[], const string keyboard[]) {
 }
 
 int keypad(int num, string output[]){
-    const string keyboard[] = { "",
-                                "",
+    const string keyboard[] = { " ",
+                                " ",
                                 "abc",
                                 "def",
                                 "ghi",
@@ -62,8 +62,10 @@ int main(){
 
     string output[10000];
     int count = keypad(num, output);
+
     for(int i = 0; i < count && i < 10000; i++){
         cout << output[i] << endl;
     }
+    
     return 0;
 }
