@@ -4,7 +4,7 @@
 // Note : The order of subsets are not important.
 
 #include <iostream>
-#include "solution.h"
+// #include "solution.h"
 using namespace std;
 
 int subsetSumToK(int input[], int n, int startIndex, int output[][50], int k) {
