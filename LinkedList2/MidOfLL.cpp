@@ -43,6 +43,7 @@ Node *takeinput()
 
 // to get mid point of LL
 Node *midPoint(Node *head) {
+	// if no node is there then return as it is
 	if (!head) {
         return head;
     }
@@ -50,6 +51,9 @@ Node *midPoint(Node *head) {
     Node *slow = head;
     Node *fast = head->next;
 
+	// Fast pointer will move ahead two pointers at a time, while the slower one will move at a speed of a pointer at a time.​ 
+	// In this way, when the fast pointer will reach the end, by that time the slow pointer will be at the middle position of the array.
+	// as fast is peoceeded by 2 nodes we need to check fast and fast->next is null or not
     while (fast && fast->next) {
         slow = slow->next;
         fast = fast->next->next;

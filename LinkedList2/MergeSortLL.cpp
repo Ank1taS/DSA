@@ -69,8 +69,11 @@ Node *midPoint(Node *head) {
 
 // to merge 2 sorted LL
 Node *mergeTwoSortedLinkedLists(Node *head1, Node *head2) {
-    if (!head1 || !head2) {
+    if (!head2) {
         return head1;
+    }
+    if (!head1) {
+        return head2;
     }
 
     Node *finalHead = NULL;

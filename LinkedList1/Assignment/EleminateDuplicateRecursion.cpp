@@ -55,19 +55,23 @@ void print(Node *head)
 
 // 
 Node *removeDuplicates(Node *head) {
+	// if LL have no or single element return as it is
 	if (!head || !(head->next)) {
 		return head;
 	}
 
 	Node *currentNode = head->next;
 
+	// if data of currentNode is same as head of data we will remove the current node 
 	while (currentNode->data == head->data) {
+		// if next node of head node it current node is not the last node, then algorithm to remove a intermidiate node 
 		if (currentNode->next){
 			Node *temp = currentNode;
 			currentNode = currentNode->next;
 			head->next = currentNode;
 			delete temp;
 		}
+		// if next node of head node it current node is the last node then store null at net of head to terminate the LL and delete current or last node of LL
 		else {
 			head->next = NULL;
 			delete currentNode;

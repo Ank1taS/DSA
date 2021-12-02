@@ -57,14 +57,24 @@ void print(Node *head)
 
 // To merge 2 sorted LL
 Node *mergeTwoSortedLinkedLists(Node *head1, Node *head2) {
-    if (!head1 || !head2) {
-        return head1;
+	// return 2nd node when 1st node is null
+    if (!head1) {
+        return head2;
     }
 
-    Node *finalHead = NULL;
-    Node *finalTail = NULL;
+	// return 1st node when 2nd node is null
+	if (!head2) {
+		return head1;
+	}
 
+	// initialise resulting LL head and tail with NULL
+    Node *finalHead {NULL};
+    Node *finalTail {NULL};
+
+	// when both 1st and 2nd LL are not NULL.
     while (head1 && head2) {
+		// when 1st LL's head(current node) data is less than 2nd LL's head(current node) data store 1st LL's head node in resulting
+		// then peoceed head of 1st LL by 1
         if (head1->data < head2->data) {
             if (!finalHead ) {
                 finalHead = head1;
@@ -77,6 +87,8 @@ Node *mergeTwoSortedLinkedLists(Node *head1, Node *head2) {
 
             head1 = head1->next;
         }
+		// when 2nd LL's head(current node) data is less than 1st LL's head(current node) data store 2nd LL's head node in resulting LL
+		// then peoceed head of 2nd LL by 1
         else {
             if (!finalHead ) {
                 finalHead = head2;
@@ -91,13 +103,16 @@ Node *mergeTwoSortedLinkedLists(Node *head1, Node *head2) {
         }
     }
 
+	// if 2nd LL is NULL but 1st LL still have nodes store all nodes of 1stLL in resulting LL 
     if (head1) {
         finalTail->next = head1;
     }
+	// if 1st LL is NULL but 2nd LL still have nodes store all nodes of 2nd LL in resulting LL 
     else {
         finalTail->next = head2;
     }
 
+	// return resulting LL head Node
     return finalHead;
 }
 

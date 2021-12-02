@@ -53,47 +53,53 @@ void print(Node *head)
 
 Node *swapNodes(Node *head, int i, int j)
 {
-	if (!head || !(head->next)) {
+	// no swap operation can be perform when LL is empty or contain 1 element or i and j have same node. 
+	// so return LL as it is
+	if (!head || !(head->next) || i == j) {
         return head;
     }
 
-    if (i == j) {
-        return head;
-    }
+    Node *currenti {head};
+    Node *previ {nullptr};
+    Node *currentj {head};
+    Node *prevj {nullptr};
 
-    Node *currenti = head;
-    Node *previ = NULL;
-    Node *currentj = head;
-    Node *prevj = NULL;
-
+	// previ will point previous node of ith node and currenti will point ith node 
     for (int count = 0; count < i && currenti; ++count) {
         previ = currenti;
         currenti = currenti->next;
     }
 
+	// prevj will point previous node of jth node and currentj will point jth node 
     for (int count = 0; count < j && currentj; ++count) {
         prevj = currentj;
         currentj = currentj->next;
     }
 
+	//if any of currenti or currentj will be NULL, it indicates i or j node respectively not present in LL. In that case LL will be return as it is
     if (!currenti || !currentj) {
         return head;
     }
 
+	// if previ is not NULL that mean i is a intermidiate node
     if (previ) {
         previ->next = currentj;
     }
+	// if previ is  NULL that mean i is the head node
     else {
         head = currentj;
     }
 
+	// if prevj is not NULL that mean j is a intermidiate node
     if (prevj) {
         prevj->next = currenti;
     }
+	// if prevj is  NULL that mean j is the head node
     else {
         head = currenti;
     }
 
+	// swap 2 nodes by exchanging their next nodes
     Node *temp = currentj->next;
     currentj->next = currenti->next;
     currenti->next = temp;
