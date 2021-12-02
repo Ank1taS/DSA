@@ -54,30 +54,34 @@ void print(Node *head)
 }
 
 Node *skipMdeleteN(Node *head, int M, int N) {
-	if (!head || !N) {
-        return head;
+	// when LL is NULL return NULL ie empty LL or M is 0, delete all nodes which results a empty LL.
+	if (!head || !M) {
+        return nullptr;
     }
+
+	// when N = 0, No Node will be remove so return LL as it is. 
+	if (!N) {
+		return head;
+	}
 
     Node *current = head;
 
     while (current) {
+		// proceed current node M - 1 times
         for (int countm = 1; countm < M && current->next != NULL; ++countm) {
             current = current->next;
         }
 
+		// delete next n nodes from the current node
         for (int countn = 0; countn < N && current->next != NULL; ++countn) {
             Node *temp = current->next;
             current->next = temp->next;
 
             delete temp;
         }
-        if (M == 0) {
-            head = NULL;
-            return head;
-        }
-        if (current) {
-	        current = current->next;
-        }
+        
+		// after deletion of n node proceed current node by 1 nodes
+	    current = current->next;    
     }
     return head;
 }
