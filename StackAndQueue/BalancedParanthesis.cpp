@@ -10,10 +10,12 @@
 
 
 bool isBalanced(std::string expression) {
+    // return false if string is empty
     if (!expression[0]) {
         return false;
     }
 
+    // return false if string begins with close bracket
     if (expression[0] == ')' || expression[0] == ']' || expression[0] == '}') {
         return false;
     }
@@ -51,12 +53,7 @@ bool isBalanced(std::string expression) {
         return false;
     } 
 
-    if (st.empty()) {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return true;
 }
 
 int main() 
