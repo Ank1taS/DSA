@@ -57,7 +57,7 @@ TreeNode<int>* maxDataNode(TreeNode<int>* root) {
     for(int i {0}; i < root->children.size(); ++i) {
         TreeNode<int> *maxChild = maxDataNode(root->children[i]);
 
-        if (maxchild->data > max->data) {
+        if (maxChild->data > max->data) {
             max = maxChild;
         }
     }
