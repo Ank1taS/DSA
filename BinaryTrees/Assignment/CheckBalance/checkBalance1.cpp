@@ -52,7 +52,7 @@ BinaryTreeNode<int>* takeInput() {
     return root;
 }
 
-pair<int, bool> isBalancedHelper(BinaryTreeNode<int> root) {   
+pair<int, bool> isBalancedHelper(BinaryTreeNode<int> *root) {   
     if (!root) {
         return {0, true};
     }
