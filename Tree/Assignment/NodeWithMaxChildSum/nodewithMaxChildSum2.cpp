@@ -26,7 +26,6 @@ class TreeNode {
 TreeNode<int>* maxSumNode(TreeNode<int>* root) {
     // Write your code here
     TreeNode<int>*ansNode;
-    int ans = 0;
     if(root==NULL)
     {
         return NULL;
@@ -34,25 +33,23 @@ TreeNode<int>* maxSumNode(TreeNode<int>* root) {
     else
     {
         ansNode = root;
-         int sum=0;
-        for(int i=0;i<root->children.size();i++)
-        {
-           
+        int sum=0;
+        
+        for(int i=0;i<root->children.size();i++) {
             sum+=root->children[i]->data;
         }
        
-        for(int i=0;i<root->children.size();i++)
-        {
+        for(int i=0;i<root->children.size();i++) {
             TreeNode<int>* temp = maxSumNode(root->children[i]);
             int tempsum = 0;
-            for(int i=0;i<temp->children.size();i++){
+            
+            for(int i=0;i<temp->children.size();i++) {
  				tempsum+=temp->children[i]->data;               
             }
-            if(tempsum>sum)
-         {
-            sum = tempsum;
-             ansNode = temp;
-         }
+            if(tempsum>sum) {
+                sum = tempsum;
+                ansNode = temp;
+            }
         }
     }
    return ansNode;
