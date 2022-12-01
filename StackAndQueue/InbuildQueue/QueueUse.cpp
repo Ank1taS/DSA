@@ -1,6 +1,5 @@
 #include <iostream>
 using namespace std;
-#include "QueueUsingArray.h"
 #include <queue>
 
 int main() {
