@@ -71,6 +71,7 @@ T Stack<T>::top() const {
     return head->data;
 }
 
+// reference :https://bytefreaks.net/programming-2/c/c-undefined-reference-to-templated-class-function
 template class Stack<int>;
 template class Stack<char>;
 template class Stack<float>;
