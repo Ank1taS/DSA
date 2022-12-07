@@ -60,6 +60,7 @@ int main() {
     TreeNode<int>* root {takeInputLevelwise<int>()};
 
     printTree(root);
+    delete root;
 
     return 0;
 }
